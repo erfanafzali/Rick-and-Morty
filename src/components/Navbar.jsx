@@ -15,8 +15,8 @@ export default Navbar;
 
 export function Logo() {
   return (
-    <div className="w-[20%] flex justify-center items-center  max-w-full h-auto">
-      <img src="/src/assets/images/logo copy.png" alt="" className="max-h-20" />
+    <div className="w-[20%] flex justify-center items-center text-slate-400 max-w-full h-auto font-bold text-[8px] sm:text-[12px] md:text-[17px] lg:text-[24px]">
+      Rick&amp;Morty
     </div>
   );
 }
