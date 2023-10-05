@@ -7,18 +7,13 @@ import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import CharacterDetail from "./components/CharacterDetail";
 import useCharacters from "./hooks/useCharacters";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 function App() {
   const [query, setQuery] = useState("");
   const { characters, isLoading } = useCharacters(query);
   const [selectedId, setSelectedId] = useState(null);
-  const [favorites, setFavorites] = useState(
-    () => JSON.parse(localStorage.getItem("Favorites")) || []
-  );
-
-  useEffect(() => {
-    localStorage.setItem("Favorites", JSON.stringify(favorites));
-  }, [favorites]);
+  const [favorites, setFavorites] = useLocalStorage("Favorites", []);
 
   const handleSelectCharacter = (id) => {
     setSelectedId((prevId) => (prevId === id ? null : id));
